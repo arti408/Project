@@ -9,12 +9,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "buyer")
-public class Buyer {
-	@Id
+public class BuyerLogin {
+	
 	@Column(name = "buyerid", nullable = false)
-	private Integer buyerId;
+	private String buyerId;
 	private String name;
-	@Column(name = "email", nullable  = false)
+	@Id
+	@Column(name = "email", unique = true ,nullable = false)
 	private String emailId;
 	@Column(name = "phonenumber", nullable = false)
     private String phoneNo;
@@ -26,11 +27,11 @@ public class Buyer {
 	@Column(name = "isactive", nullable = false)
 	private String isActive;
 
-	public Integer getBuyerId() {
+	public String getBuyerId() {
 		return buyerId;
 	}
 
-	public void setBuyerId(Integer buyerId) {
+	public void setBuyerId(String buyerId) {
 		this.buyerId = buyerId;
 	}
 
@@ -103,7 +104,7 @@ public class Buyer {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Buyer other = (Buyer) obj;
+		BuyerLogin other = (BuyerLogin) obj;
 		return Objects.equals(buyerId, other.buyerId);
 	}
 

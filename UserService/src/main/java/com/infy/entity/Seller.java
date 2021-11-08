@@ -2,22 +2,26 @@ package com.infy.entity;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name = "seller")
 public class Seller {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "sellerid", nullable = false)
 	private Integer sellerId;
 	private String name;
+	@Column(name = "email", nullable = false)
 	private String emailId;
-    private Integer phoneNo;
+	@Column(name = "phonenumber", nullable = false)
+    private String phoneNo;
 	private String password;
+	@Column(name = "isactive", nullable = false)
 	private String isActive;
 	
 	public Integer getSellerId() {
@@ -44,11 +48,11 @@ public class Seller {
 		this.emailId = emailId;
 	}
 	
-	public Integer getPhoneNo() {
+	public String getPhoneNo() {
 		return phoneNo;
 	}
 	
-	public void setPhoneNo(Integer phoneNo) {
+	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 	

@@ -8,30 +8,27 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "buyer")
-public class Buyer {
-	@Id
-	@Column(name = "buyerid", nullable = false)
-	private Integer buyerId;
+@Table(name = "seller")
+public class SellerLogin {
+	
+	@Column(name = "sellerid", nullable = false)
+	private String sellerId;
 	private String name;
-	@Column(name = "email", nullable  = false)
+	@Id
+	@Column(name = "email", unique = true, nullable = false)
 	private String emailId;
 	@Column(name = "phonenumber", nullable = false)
     private String phoneNo;
 	private String password;
-	@Column(name = "isprivileged", nullable = false)
-    private String isPrivileged;
-	@Column(name = "rewardpoints", nullable = false)
-    private Double rewardPoints;
 	@Column(name = "isactive", nullable = false)
 	private String isActive;
 
-	public Integer getBuyerId() {
-		return buyerId;
+	public String getBuyerId() {
+		return sellerId;
 	}
 
-	public void setBuyerId(Integer buyerId) {
-		this.buyerId = buyerId;
+	public void setBuyerId(String buyerId) {
+		this.sellerId = buyerId;
 	}
 
 	public String getName() {
@@ -66,22 +63,6 @@ public class Buyer {
 		this.password = password;
 	}
 
-	public String getIsPrivileged() {
-		return isPrivileged;
-	}
-
-	public void setIsPrivileged(String isPrivileged) {
-		this.isPrivileged = isPrivileged;
-	}
-
-	public Double getRewardPoints() {
-		return rewardPoints;
-	}
-
-	public void setRewardPoints(Double rewardPoints) {
-		this.rewardPoints = rewardPoints;
-	}
-
 	public String getIsActive() {
 		return isActive;
 	}
@@ -92,7 +73,7 @@ public class Buyer {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(buyerId);
+		return Objects.hash(sellerId);
 	}
 
 	@Override
@@ -103,15 +84,14 @@ public class Buyer {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Buyer other = (Buyer) obj;
-		return Objects.equals(buyerId, other.buyerId);
+		SellerLogin other = (SellerLogin) obj;
+		return Objects.equals(sellerId, other.sellerId);
 	}
 
 	@Override
 	public String toString() {
-		return "Buyer [buyerId=" + buyerId + ", name=" + name + ", emailId=" + emailId + ", phoneNo=" + phoneNo
-				+ ", password=" + password + ", isPrivileged=" + isPrivileged + ", rewardPoints=" + rewardPoints
-				+ ", isActive=" + isActive + "]";
+		return "Buyer [buyerId=" + sellerId + ", name=" + name + ", emailId=" + emailId + ", phoneNo=" + phoneNo
+				+ ", password=" + password + ", isPrivileged=" + ", isActive=" + isActive + "]";
 	}
 	
 	

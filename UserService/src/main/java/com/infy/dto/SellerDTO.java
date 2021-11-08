@@ -20,7 +20,7 @@ public class SellerDTO {
 	@NotNull(message = "{user.phoneno.absent}")
 	@Size(min=10,max=10, message="{user.phoneno.invalid}")
 	@Pattern(regexp="^[0-9]*$", message="{user.phoneno.invalid}")
-	private Integer phoneNo;
+	private String phoneNo;
 	
 	@NotNull(message = "{user.password.absent}")
 	@Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*]).{7,20}$", message = "{user.password.invalid}")
@@ -52,11 +52,11 @@ public class SellerDTO {
 		this.name = name;
 	}
 	
-	public Integer getPhoneNo() {
+	public String getPhoneNo() {
 		return phoneNo;
 	}
 	
-	public void setPhoneNo(Integer phoneNo) {
+	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 	
